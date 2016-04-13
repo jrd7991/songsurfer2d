@@ -13,7 +13,8 @@ class FreqGraph extends Graph {
     data = new float[size];
   }
   FreqGraph play() {
-    song.loop();
+    //song.cue(35000);
+    song.play();
     return this;
   }
   float logb (float x, float b) {
