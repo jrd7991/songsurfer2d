@@ -44,8 +44,26 @@ void drawGraph(int cx, int cy, int r, int s, float scalefactor, boolean lines, f
     
     
  }
-
- fill(255);
+ float sign = 1;
+  
+   if (rightside) {
+     itheta++;
+     if (itheta == s-1) rightside = !rightside;
+   }
+   else {
+     itheta--;
+     if (itheta == 0) rightside = !rightside;
+     sign = -1;
+   }
+   
+   stroke(0);
+  strokeWeight(10);
+  line(cx,cy,cx+sign*(r+freqGraph.get(itheta)*scalefactor)*sin(angle*itheta/s),cy+(r+freqGraph.get(itheta)*scalefactor)*cos(angle*itheta/s));
+  strokeWeight(4);
+  fill(255);
+  ellipse(cx+sign*(r+freqGraph.get(itheta)*scalefactor)*sin(angle*itheta/s),cy+(r+freqGraph.get(itheta)*scalefactor)*cos(angle*itheta/s),15,15);
+ 
+ fill(0);
  ellipse(cx,cy,2*r,2*r);
  //line(cx+(r+freqGraph.get(s-1)*scalefactor)*sin(angle),cy+(r+freqGraph.get(s-1)*scalefactor)*cos(angle),cx+(r+freqGraph.get(i+1)*scalefactor)*sin(angle*(i+1)/s),cy+(r+freqGraph.get(i+1)*scalefactor)*cos(angle*(i+1)/s));
 

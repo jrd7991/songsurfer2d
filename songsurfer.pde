@@ -13,6 +13,8 @@ boolean lines = true;
 float ColorJump = 0;
 int ColorShift;
 
+int itheta = 0;
+boolean rightside = true;
 int cx = 400;
 int cy = 250;
 int r = 100;
