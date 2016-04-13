@@ -22,6 +22,7 @@ boolean rightside = true;
 int cx = 400;
 int cy = 250;
 int r = 100;
+float dist;
 void setup() {
 size(800,800);
     minim = new Minim(this);
