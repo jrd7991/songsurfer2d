@@ -33,7 +33,7 @@ void drawGraph(int cx, int cy, int r, int s, float scalefactor, boolean lines, f
     
     colorJump = colorJump + .1;
     colorShift = floor(colorJump) % 255;
-    println(colorShift);
+    //println(colorShift);
    
  } 
  
