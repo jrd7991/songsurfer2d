@@ -34,10 +34,10 @@ void drawGraph(int cx, int cy, int r, int s, float scalefactor, boolean lines, f
    dist = dist*0.8+0.2*sqrt(dx*dx+dy*dy);
    }
    
-   println("ftheta is + " +ftheta + " , dist is " + dist);
+   //println("ftheta is + " +ftheta + " , dist is " + dist);
    ftheta += 5.0/dist;
    
-   println("ftheta is now + " +ftheta + " , dist is " + dist);
+   //println("ftheta is now + " +ftheta + " , dist is " + dist);
    if (itheta > 2*s) itheta = 0;
    if (drawThing) {
    stroke(0);
