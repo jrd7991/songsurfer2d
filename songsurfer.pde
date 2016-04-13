@@ -25,18 +25,9 @@ boolean rightside = true;
 int cx = 0;
 int cy = 0;
 int r = 100;
-<<<<<<< Updated upstream
 int rotationspeed = 1;
 int rotationtime = 0;
 
-=======
-<<<<<<< HEAD
-=======
-int rotationspeed = 1;
-int rotationtime = 0;
-
->>>>>>> origin/master
->>>>>>> Stashed changes
 void setup() {
 size(800,800);
     minim = new Minim(this);
