@@ -22,24 +22,32 @@ size(800,500);
 
 void draw() {
   background(0);
-  fill(255);
   stroke(255);
   smooth();
   int s = freqGraph.size;
-  ellipse(cx,cy,2*r,2*r);
+  int shift = 0;
+  
   float angle = 3.1415;
   for (int i = 0; i < s-1; i++) {
     //line(i*width/s,height-freqGraph.get(i)*scalefactor,(i+1)*width/s,height-freqGraph.get(i+1)*scalefactor);
-    fill(255,0,0);
-    
+   
+    stroke(color(255));
     line(cx+(r+freqGraph.get(i)*scalefactor)*sin(angle*i/s),cy+(r+freqGraph.get(i)*scalefactor)*cos(angle*i/s),cx+(r+freqGraph.get(i+1)*scalefactor)*sin(angle*(i+1)/s),cy+(r+freqGraph.get(i+1)*scalefactor)*cos(angle*(i+1)/s));
     line(cx-(r+freqGraph.get(i)*scalefactor)*sin(angle*i/s),cy+(r+freqGraph.get(i)*scalefactor)*cos(angle*i/s),cx-(r+freqGraph.get(i+1)*scalefactor)*sin(angle*(i+1)/s),cy+(r+freqGraph.get(i+1)*scalefactor)*cos(angle*(i+1)/s));
     
-    line(cx,cy,cx+(r+freqGraph.get(i)*scalefactor)*sin(angle*(i+1)/s),cy+(r+freqGraph.get(i)*scalefactor)*cos(angle*(i+1)/s));
     
+    stroke(color(255,(shift)*255*i/s % 255,255*i/s));
+    
+    line(cx,cy,cx+(r+freqGraph.get(i)*scalefactor)*sin(angle*(i)/s),cy+(r+freqGraph.get(i)*scalefactor)*cos(angle*(i)/s));
+    line(cx,cy,cx-(r+freqGraph.get(i)*scalefactor)*sin(angle*(i)/s),cy+(r+freqGraph.get(i)*scalefactor)*cos(angle*(i)/s));
+    
+    fill(255);
+    ellipse(cx,cy,2*r,2*r);
+    shift = shift+1;
+    shift = shift % 255;
    
 } 
-  //line(cx+(r+freqGraph.get(s-1)*scalefactor)*sin(angle),cy+(r+freqGraph.get(s-1)*scalefactor)*cos(angle),cx+(r+freqGraph.get(i+1)*scalefactor)*sin(angle*(i+1)/s),cy+(r+freqGraph.get(i+1)*scalefactor)*cos(angle*(i+1)/s));
+    //line(cx+(r+freqGraph.get(s-1)*scalefactor)*sin(angle),cy+(r+freqGraph.get(s-1)*scalefactor)*cos(angle),cx+(r+freqGraph.get(i+1)*scalefactor)*sin(angle*(i+1)/s),cy+(r+freqGraph.get(i+1)*scalefactor)*cos(angle*(i+1)/s));
 
   freqGraph.updateFreqs();
 }
