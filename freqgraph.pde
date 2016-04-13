@@ -30,7 +30,7 @@ class FreqGraph extends Graph {
         sum2 += val;
         sum += val*(fftLin.getBand((int) pow(1.047, j)));
       }
-      data[i] += 0.18*(sum/sum2-data[i]);
+      data[i] += 0.12*(sum/sum2-data[i]);
     }
     return this;
   }
