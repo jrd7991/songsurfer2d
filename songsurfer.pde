@@ -16,6 +16,7 @@ boolean lines = true;
 float ColorJump = 0;
 int ColorShift;
 boolean drawThing = false;
+float ftheta = 0;
 int itheta = 0;
 boolean rightside = true;
 int cx = 400;
@@ -40,7 +41,7 @@ void draw() {
   stroke(255);
   smooth();
   int s = freqGraph.size;
-  float angle = 3.1415;
+  float angle = 3.1415+1.3*3.1415/float(s);
   drawGraph(cx,cy,r, s, scalefactor, lines,ColorJump, ColorShift , angle);
 }
 
