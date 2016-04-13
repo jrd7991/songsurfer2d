@@ -1,12 +1,35 @@
 void drawGraph(int cx, int cy, int r, int s, float scalefactor, boolean lines, float colorJump, int colorShift, float angle ){
 
- for (int i = 0; i < 2*s; i++) {
-
+ for (int i = 0; i < s-1; i++) {
+    //line(i*width/s,height-freqGraph.get(i)*scalefactor,(i+1)*width/s,height-freqGraph.get(i+1)*scalefactor);
+   
+    
     stroke(color((colorShift)*255*i/s %255, (colorShift + random(0,10))*255*i/s %255, (colorShift + random(0,100))*255*i/s %255));
     
     if (lines) {
       line(cx,cy,cx+(r+freqGraph.get(i)*scalefactor)*sin(angle*(i)/s),cy+(r+freqGraph.get(i)*scalefactor)*cos(angle*(i)/s));
-     }
+      line(cx,cy,cx-(r+freqGraph.get(i)*scalefactor)*sin(angle*(i)/s),cy+(r+freqGraph.get(i)*scalefactor)*cos(angle*(i)/s));
+    }
+    
+    if (i == 1) {
+      
+      if (lines) {
+        line(cx,cy,cx,cy+(r+freqGraph.get(i)*scalefactor));
+      }
+      stroke(255);
+      line(cx+(r+freqGraph.get(i)*scalefactor)*sin(angle*i/s),cy+(r+freqGraph.get(i)*scalefactor)*cos(angle*i/s),cx-(r+freqGraph.get(i)*scalefactor)*sin(angle*i/s),cy+(r+freqGraph.get(i)*scalefactor)*cos(angle*i/s));
+    
+    }
+    
+    if (i == s-2) {
+      if (lines) {
+        line(cx,cy,cx,cy-(r+freqGraph.get(i)*scalefactor));
+      }
+      stroke(255);
+      line(cx+(r+freqGraph.get(i)*scalefactor)*sin(angle*i/s),cy+(r+freqGraph.get(i)*scalefactor)*cos(angle*i/s),cx-(r+freqGraph.get(i)*scalefactor)*sin(angle*i/s),cy+(r+freqGraph.get(i)*scalefactor)*cos(angle*i/s));
+   
+    }
+    
     
     colorJump = colorJump + .1;
     colorShift = floor(colorJump) % 255;
@@ -14,15 +37,25 @@ void drawGraph(int cx, int cy, int r, int s, float scalefactor, boolean lines, f
    
  } 
  
- for (int i = 0; i < 2*s; i++) {
+ for (int i = 0; i < s-1; i++) {
  stroke(color(255));
     line(cx+(r+freqGraph.get(i)*scalefactor)*sin(angle*i/s),cy+(r+freqGraph.get(i)*scalefactor)*cos(angle*i/s),cx+(r+freqGraph.get(i+1)*scalefactor)*sin(angle*(i+1)/s),cy+(r+freqGraph.get(i+1)*scalefactor)*cos(angle*(i+1)/s));
-   
+    line(cx-(r+freqGraph.get(i)*scalefactor)*sin(angle*i/s),cy+(r+freqGraph.get(i)*scalefactor)*cos(angle*i/s),cx-(r+freqGraph.get(i+1)*scalefactor)*sin(angle*(i+1)/s),cy+(r+freqGraph.get(i+1)*scalefactor)*cos(angle*(i+1)/s));
+    
+    
  }
  float sign = 1;
   
-   itheta++;
-   if (itheta > 2*s) itheta = 0;
+   if (rightside) {
+     itheta++;
+     if (itheta == s-1) rightside = !rightside;
+   }
+   else {
+     itheta--;
+     if (itheta == 0) rightside = !rightside;
+     sign = -1;
+   }
+   
    if (drawThing) {
    stroke(0);
   strokeWeight(10);
