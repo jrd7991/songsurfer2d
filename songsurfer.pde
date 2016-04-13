@@ -12,7 +12,7 @@ float scalefactor = 5.0;
 boolean lines = true;
 float ColorJump = 0;
 int ColorShift;
-
+boolean drawThing = false;
 int itheta = 0;
 boolean rightside = true;
 int cx = 400;
@@ -38,4 +38,8 @@ void draw() {
 
 void mouseClicked() {
   lines = !lines;
+}
+
+void keyReleased() {
+  drawThing = !drawThing;
 }
