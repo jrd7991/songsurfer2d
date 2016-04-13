@@ -1,14 +1,10 @@
-void drawGraph(int cx, int cy, int r, int s, float scalefactor, boolean lines, float ColorJump, int ColorShift, float angle ){
+void drawGraph(int cx, int cy, int r, int s, float scalefactor, boolean lines, float colorJump, int colorShift, float angle ){
 
  for (int i = 0; i < s-1; i++) {
     //line(i*width/s,height-freqGraph.get(i)*scalefactor,(i+1)*width/s,height-freqGraph.get(i+1)*scalefactor);
    
-    stroke(color(255));
-    line(cx+(r+freqGraph.get(i)*scalefactor)*sin(angle*i/s),cy+(r+freqGraph.get(i)*scalefactor)*cos(angle*i/s),cx+(r+freqGraph.get(i+1)*scalefactor)*sin(angle*(i+1)/s),cy+(r+freqGraph.get(i+1)*scalefactor)*cos(angle*(i+1)/s));
-    line(cx-(r+freqGraph.get(i)*scalefactor)*sin(angle*i/s),cy+(r+freqGraph.get(i)*scalefactor)*cos(angle*i/s),cx-(r+freqGraph.get(i+1)*scalefactor)*sin(angle*(i+1)/s),cy+(r+freqGraph.get(i+1)*scalefactor)*cos(angle*(i+1)/s));
     
-    
-    stroke(color((ColorShift)*255*i/s %255, (ColorShift + random(0,10))*255*i/s %255, (ColorShift + random(0,100))*255*i/s %255));
+    stroke(color((colorShift)*255*i/s %255, (colorShift + random(0,10))*255*i/s %255, (colorShift + random(0,100))*255*i/s %255));
     
     if (lines) {
       line(cx,cy,cx+(r+freqGraph.get(i)*scalefactor)*sin(angle*(i)/s),cy+(r+freqGraph.get(i)*scalefactor)*cos(angle*(i)/s));
@@ -35,11 +31,19 @@ void drawGraph(int cx, int cy, int r, int s, float scalefactor, boolean lines, f
     }
     
     
-    ColorJump = ColorJump + .01;
-    ColorShift = floor(ColorJump) % 255;
-    println(ColorShift);
+    colorJump = colorJump + .1;
+    colorShift = floor(colorJump) % 255;
+    println(colorShift);
    
  } 
+ 
+ for (int i = 0; i < s-1; i++) {
+ stroke(color(255));
+    line(cx+(r+freqGraph.get(i)*scalefactor)*sin(angle*i/s),cy+(r+freqGraph.get(i)*scalefactor)*cos(angle*i/s),cx+(r+freqGraph.get(i+1)*scalefactor)*sin(angle*(i+1)/s),cy+(r+freqGraph.get(i+1)*scalefactor)*cos(angle*(i+1)/s));
+    line(cx-(r+freqGraph.get(i)*scalefactor)*sin(angle*i/s),cy+(r+freqGraph.get(i)*scalefactor)*cos(angle*i/s),cx-(r+freqGraph.get(i+1)*scalefactor)*sin(angle*(i+1)/s),cy+(r+freqGraph.get(i+1)*scalefactor)*cos(angle*(i+1)/s));
+    
+    
+ }
 
  fill(255);
  ellipse(cx,cy,2*r,2*r);

@@ -22,7 +22,7 @@ size(800,800);
   freqGraph = new FreqGraph(500,"data/dream.mp3",minim);
   freqGraph.play();
   
-  
+  strokeWeight(4);
 }
 
 void draw() {
@@ -30,13 +30,8 @@ void draw() {
   stroke(255);
   smooth();
   int s = freqGraph.size;
- 
-  
   float angle = 3.1415;
-  
   drawGraph(cx,cy,r, s, scalefactor, lines,ColorJump, ColorShift , angle);
-  
- 
 }
 
 void mouseClicked() {
