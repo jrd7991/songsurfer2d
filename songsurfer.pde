@@ -36,13 +36,13 @@ class FreqGraph extends Graph {
     data = new float[size];
   }
   FreqGraph play() {
-    jingle.loop();
+    song.loop();
     return this;
   }
 
   FreqGraph updateFreqs() {
   fftLin.forward( song.mix );
-  fftLog.forward( song.mix );
+  //fftLog.forward( song.mix );
   for (int i = 0; i < size; i++){
     float sum = 0;
     float sum2 = 0;
