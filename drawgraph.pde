@@ -1,5 +1,8 @@
 void drawGraph(int cx, int cy, int r, int s, float scalefactor, boolean lines, float colorJump, int colorShift, float angle ){
 
+  
+
+  
  for (int i = 0; i < 2*s; i++) {
 
    stroke(color((colorShift)*255*i/s %255, (colorShift + random(0,10))*255*i/s %255, (colorShift + random(0,100))*255*i/s %255));
@@ -105,5 +108,7 @@ void drawGraph(int cx, int cy, int r, int s, float scalefactor, boolean lines, f
   }if (keyPressed && keyCode == LEFT) {
   rot++;
   }
+  
+   
 
 }

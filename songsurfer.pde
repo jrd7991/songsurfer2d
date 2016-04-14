@@ -30,6 +30,10 @@ float radius = 100;
 float rotsign = 1;
 Surfarray sarray;
 float scale2 = 10.0;
+int beatlimiter = 40;
+int beatfreq = 12;
+  
+  
 void setup() {
 size(800,800);
     minim = new Minim(this);
@@ -42,6 +46,7 @@ size(800,800);
   
   freqGraph.play();
   strokeWeight(4);
+  
 }
 
 void draw() {
@@ -51,6 +56,11 @@ void draw() {
   int s = freqGraph.size;
   float angle = 3.1415+1.3*3.1415/float(s);
   drawGraph(cx,cy,r, s, scalefactor, lines,ColorJump, ColorShift , angle);
+  
+  //To try to implement a drop lines only when one hears the beat.
+  println(freqGraph.data[beatfreq]);
+  lines = beatChange(lines);
+
 }
 
 void mouseClicked() {
@@ -72,4 +82,5 @@ void keyPressed() {
     freqGraph.song.cue(160000);
     //freqGraph.song.play();
   }
+
 }
