@@ -61,7 +61,7 @@ void drawGraph(int cx, int cy, int r, int s, float scalefactor, boolean lines, f
   
   if (drawThing) {
   for (int i = 0; i < sarray.arr.size()-1; i++) {
-    line(width-50-i*(width-100.0)/500.0,height-300-sarray.get(i)*scale2,width-50-(i+1)*(width-100)/500,height-300-sarray.get(i+1)*scale2);
+    line(width-50-i*(width-100.0)/500.0,height-100-sarray.get(i)*scale2,width-50-(i+1)*(width-100)/500,height-100-sarray.get(i+1)*scale2);
   }
   }
   
