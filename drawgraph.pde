@@ -58,13 +58,19 @@ void drawGraph(int cx, int cy, int r, int s, float scalefactor, boolean lines, f
   //ellipse(cx+(radius+r)*sin(angle*itheta/(4*s)),cy+(r+radius)*cos(angle*itheta/(4*s)),15,15);
   //}
   stroke(255);
+  
+  if (drawThing) {
   for (int i = 0; i < sarray.arr.size()-1; i++) {
     line(width-50-i*(width-100.0)/500.0,height-300-sarray.get(i)*scale2,width-50-(i+1)*(width-100)/500,height-300-sarray.get(i+1)*scale2);
   }
+  }
   
-  //if (sarray.arr.size() > 0) println(height-300-sarray.get(0)*scale2);
+  if (sarray.arr.size() > 0) { 
+  sarray.insert(freqGraph.getSum()*0.02+0.98*sarray.get(0));
+  }
+  else {sarray.insert(freqGraph.getSum());
+  }
  //println(freqGraph.getSum());
-  sarray.insert(freqGraph.getSum());
   
   fill(0);
   stroke(255);
