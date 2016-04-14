@@ -84,8 +84,9 @@ void drawGraph(int cx, int cy, int r, int s, float scalefactor, boolean lines, f
     if (drawThing) {
       strokeWeight(4);
       if (mouthCirc) {
-      line(-cx+width-375,-cy+height-500,-cx+width-425,-cy+height-500);
-      ellipse(-cx+width-400,-cy+height-500,abs(rotsign)*5+10,abs(rotsign*5)+10);
+      //line(-cx+width-375,-cy+height-500,-cx+width-425,-cy+height-500);
+      //ellipse(-cx+width-400,-cy+height-500,abs(rotsign)*5+10,abs(rotsign*5)+10);
+      ellipse(-cx+width-400,-cy+height-500,69,abs(rotsign*5)+10);
       }
       else {
       line(-cx+width-357,-cy+height-500,-cx+width-443,-cy+height-500);
