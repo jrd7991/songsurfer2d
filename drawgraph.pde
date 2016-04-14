@@ -59,23 +59,44 @@ void drawGraph(int cx, int cy, int r, int s, float scalefactor, boolean lines, f
   //}
   stroke(255);
   
-  if (drawThing) {
-  for (int i = 0; i < sarray.arr.size()-1; i++) {
-    line(width-50-i*(width-100.0)/500.0,height-100-sarray.get(i)*scale2,width-50-(i+1)*(width-100)/500,height-100-sarray.get(i+1)*scale2);
-  }
-  }
-  
+
   if (sarray.arr.size() > 0) { 
   sarray.insert(freqGraph.getSum()*0.02+0.98*sarray.get(0));
+  //if (sarray.arr.size() > 2) {
+  //  if (sarray.get(2) > sarray.get(1) && sarray.get(0) > sarray.get(1) || (sarray.get(2) < sarray.get(1) && sarray.get(0) < sarray.get(1))) {
+  //    rotsign *= -1;
+  //  }
+  //}
+  rotsign += 0.07*(15.0*(sarray.get(1)-sarray.get(0))-rotsign);
   }
   else {sarray.insert(freqGraph.getSum());
   }
  //println(freqGraph.getSum());
-  
+  pushMatrix();
   fill(0);
   stroke(255);
   ellipse(cx,cy,2*r,2*r);
-  freqGraph.updateFreqs();
   
+  translate(400,250);
+   
+   rotate(radians(rot));
+  
+    if (drawThing) {
+      strokeWeight(3);
+      line(-cx+width-350,-cy+height-500,-cx+width-450,-cy+height-500);
+  for (int i = 0; i < sarray.arr.size()-1; i++) {
+    line(-cx+width-350-i*(width-700.0)/500.0,-cy+height-500-sarray.get(i)*scale2,-cx+width-350-(i+1)*(width-700)/500,-cy+height-500-sarray.get(i+1)*scale2);
+  }
+  }
+ 
+   popMatrix();
+  strokeWeight(4);
+  freqGraph.updateFreqs();
+  if (autorot) rot += rotsign;
+  if (keyPressed && keyCode == RIGHT) {
+  rot--;
+  }if (keyPressed && keyCode == LEFT) {
+  rot++;
+  }
 
 }

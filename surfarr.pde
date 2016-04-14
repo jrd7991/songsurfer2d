@@ -11,6 +11,6 @@ class Surfarray {
     return this;
   }
   float get(int i) {
-    return arr.get(i);
+    return sqrt(arr.get(i));
   }
 }
