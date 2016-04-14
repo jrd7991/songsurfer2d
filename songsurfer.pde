@@ -22,11 +22,14 @@ boolean rightside = true;
 int cx = 400;
 int cy = 250;
 int r = 100;
-float dist;
+float dist = 0.5;
+float radius = 100;
+Surfarray sarray;
+float scale2 = 0.125;
 void setup() {
 size(800,800);
     minim = new Minim(this);
- 
+ sarray = new Surfarray(500);
   //soundcloud = new SoundCloud("6c3507a1755ff1781664a4cc4b5c99c7", "e7eacbb39c72372b092e6dabad8aa4e1");
   //ArrayList<Track> result = soundcloud.findTrack("TheFatRat - Monody");
   

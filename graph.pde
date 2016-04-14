@@ -12,4 +12,5 @@ class Graph {
     return data[i];
     
   }
+  
 }

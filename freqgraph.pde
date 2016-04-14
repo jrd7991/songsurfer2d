@@ -35,4 +35,11 @@ class FreqGraph extends Graph {
     }
     return this;
   }
+  float getSum() {
+    float sum = 0;
+    for (int i = 1; i < data.length-1; i++) {
+      sum += data[i];
+    }
+    return sum;
+  }
 }
