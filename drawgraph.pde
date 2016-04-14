@@ -3,7 +3,9 @@ void drawGraph(int cx, int cy, int r, int s, float scalefactor, boolean lines, f
  for (int i = 0; i < 2*s; i++) {
 
    stroke(color((colorShift)*255*i/s %255, (colorShift + random(0,10))*255*i/s %255, (colorShift + random(0,100))*255*i/s %255));
-    
+ 
+  //stroke(colors[i]);
+  
    if (lines) {
      line(cx,cy,cx+(r+freqGraph.get(i)*scalefactor)*sin(angle*(i)/s),cy+(r+freqGraph.get(i)*scalefactor)*cos(angle*(i)/s));
     }
@@ -71,6 +73,13 @@ void drawGraph(int cx, int cy, int r, int s, float scalefactor, boolean lines, f
   }
   else {sarray.insert(freqGraph.getSum());
   }
+  
+   //float changeval = sarray.get(0)*10.0;
+   //for (int i = 0; i < colors.length; i++) {
+   // colors[i] = color( red(colors[i])+ random(-changeval,changeval)+0.5,  green(colors[i])+ random(-changeval,changeval)+0.5,blue(colors[i])+ random(-changeval,changeval)+0.5);
+  //}
+  
+  //println(red(colors[0]));
  //println(freqGraph.getSum());
   pushMatrix();
   fill(0);
