@@ -82,8 +82,14 @@ void drawGraph(int cx, int cy, int r, int s, float scalefactor, boolean lines, f
    rotate(radians(rot));
   
     if (drawThing) {
-      strokeWeight(3);
-      line(-cx+width-350,-cy+height-500,-cx+width-450,-cy+height-500);
+      strokeWeight(4);
+      if (mouthCirc) {
+      line(-cx+width-375,-cy+height-500,-cx+width-425,-cy+height-500);
+      ellipse(-cx+width-400,-cy+height-500,abs(rotsign)*5+10,abs(rotsign*5)+10);
+      }
+      else {
+      line(-cx+width-357,-cy+height-500,-cx+width-443,-cy+height-500);
+      }
   for (int i = 0; i < sarray.arr.size()-1; i++) {
     line(-cx+width-350-i*(width-700.0)/500.0,-cy+height-500-sarray.get(i)*scale2,-cx+width-350-(i+1)*(width-700)/500,-cy+height-500-sarray.get(i+1)*scale2);
   }

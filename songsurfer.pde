@@ -14,6 +14,7 @@ SoundCloud soundcloud;
 float scalefactor = 5.0;
 boolean lines = true;
 float ColorJump = 0;
+boolean mouthCirc = false;
 boolean autorot = true;
 int ColorShift;
 boolean drawThing = false;
@@ -62,6 +63,8 @@ void keyPressed() {
   }
   else if (key == 'r') {
     autorot = !autorot;
+  }else if (key == 'm') {
+    mouthCirc = !mouthCirc;
   }
   else if (key == 'k') {
     //freqGraph.song.pause();
