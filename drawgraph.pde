@@ -44,8 +44,7 @@ void drawGraph(int cx, int cy, int r, int s, float scalefactor, boolean lines, f
     
     
  }
-<<<<<<< HEAD
-<<<<<<< HEAD
+
  float sign = 1;
   
    if (rightside) {
@@ -58,9 +57,7 @@ void drawGraph(int cx, int cy, int r, int s, float scalefactor, boolean lines, f
      sign = -1;
    }
    
-=======
-=======
->>>>>>> origin/master
+
    ftheta %= (2.0*s);
    itheta = floor(ftheta);
    //println(itheta + " itheta   " + ftheta + " is ftheta");
@@ -81,7 +78,7 @@ void drawGraph(int cx, int cy, int r, int s, float scalefactor, boolean lines, f
    
    //println("ftheta is now + " +ftheta + " , dist is " + dist);
    if (itheta > 2*s) itheta = 0;
->>>>>>> origin/master
+
    if (drawThing) {
    stroke(0);
   strokeWeight(10);
