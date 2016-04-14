@@ -10,7 +10,7 @@ import de.voidplus.soundcloud.*;
 FreqGraph freqGraph;
 Minim minim;
 SoundCloud soundcloud;
-
+boolean change = true;
 float scalefactor = 5.0;
 boolean lines = true;
 float ColorJump = 0;
