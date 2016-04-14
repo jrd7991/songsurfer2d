@@ -15,7 +15,7 @@ float scalefactor = 5.0;
 boolean lines = true;
 float ColorJump = 0;
 boolean mouthCirc = false;
-boolean autorot = true;
+boolean autorot = false;
 int ColorShift;
 boolean drawThing = false;
 float ftheta = 0;
